@@ -1,11 +1,13 @@
 package hotel;
 
-import java.util.ArrayList;
+
+import java.util.HashMap;
 
 public class Recepcao {
 
-	private ArrayList<Estadia> estadias = new ArrayList<>();
-	private Estadia adicionaEstadiaAoArray;
+	private HashMap<String, Estadia> estadias= new HashMap<>();
+	private Estadia teste;
+	private Estadia adicionaEstadiaDeHospede;
 	private int numDeHospedes = 0;
 	private int lucroTotal = 0;
 	
@@ -17,13 +19,14 @@ public class Recepcao {
 		
 		this.numDeHospedes += 1;
 		this.lucroTotal += valor;
-		adicionaEstadiaAoArray = new Estadia(nome, tipo, idade, dias, valor);
-		this.estadias.add(adicionaEstadiaAoArray);
-		
+		adicionaEstadiaDeHospede = new Estadia(nome, tipo, idade, dias, valor);
+		this.estadias.put(nome, adicionaEstadiaDeHospede);
+	
 	}
 	
 	public void checkOut(String nome) {
-		
+			
+		this.estadias.remove(nome);
 		this.numDeHospedes -= 1;
 
 	}
@@ -42,9 +45,10 @@ public class Recepcao {
 	public String toString() {
 		
 		String exibeListasDeHospedes = "";
-		for (int i = 0; i < estadias.size(); i++) {
+		
+		for (int i = 0; i < teste.getListaDeAnimais().size(); i++) {
 			
-			exibeListasDeHospedes += estadias.get(i) + System.lineSeparator();
+			exibeListasDeHospedes += teste.getListaDeAnimais().toString() + System.lineSeparator();
 		}
 		
 		return exibeListasDeHospedes;

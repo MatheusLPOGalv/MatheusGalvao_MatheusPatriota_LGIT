@@ -1,8 +1,11 @@
 package hotel;
 
+import java.util.ArrayList;
+
 public class Estadia {
 	
 	private Animal animal;
+	private ArrayList<Animal> listaDeAnimais = new ArrayList<>();
 	private double valor;
 	private int dias;
 	private String nome;
@@ -13,6 +16,7 @@ public class Estadia {
 	public Estadia(String nome, String tipo, int idade, int dias, double valor){
 		
 		this.animal = new Animal(nome, tipo, idade);
+		this.listaDeAnimais.add(animal);
 		this.valor = valor;
 		this.dias = dias;
 		this.idade = idade;
@@ -43,6 +47,14 @@ public class Estadia {
 	public String getTipo() {
 		
 		return tipo;
+	}
+	
+	public ArrayList<Animal> getListaDeAnimais() {
+		return listaDeAnimais;
+	}
+	
+	public void setListaDeAnimais(ArrayList<Animal> listaDeAnimais) {
+		this.listaDeAnimais = listaDeAnimais;
 	}
 	
 	@Override

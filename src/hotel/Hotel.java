@@ -2,7 +2,7 @@ package hotel;
 
 public class Hotel {
 	
-	private Recepcao recepcao;
+	private Recepcao recepcao = new Recepcao();
 	private int numDeHospedes = 0;
 	private double lucroTotal = 0;
 	
@@ -14,7 +14,7 @@ public class Hotel {
 	
 	public void checkIn(String nome, String tipo, int idade, int dias, double valor) {
 		
-		recepcao.checkIn(nome, tipo, idade, dias, valor);
+		this.recepcao.checkIn(nome, tipo, idade, dias, valor);
 		
 	}
 	
@@ -37,7 +37,7 @@ public class Hotel {
 	@Override
 	public String toString() {
 		
-		return super.toString();
+		return recepcao.toString();
 	}
 	
 	
